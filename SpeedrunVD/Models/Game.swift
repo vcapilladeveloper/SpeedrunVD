@@ -12,4 +12,9 @@ struct Game: Codable {
     let abbreviation: String
     let assets: [String: GameAsset?]
     let links: [GameLink]
+    let names: Names
+}
+
+struct Names: Codable {
+    let international: String
 }

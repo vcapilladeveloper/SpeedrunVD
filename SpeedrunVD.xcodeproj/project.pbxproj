@@ -20,6 +20,7 @@
 		67D7A56A214ADAB400B34C75 /* GameLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A569214ADAB400B34C75 /* GameLink.swift */; };
 		67D7A56C214ADBE100B34C75 /* CodableEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A56B214ADBE100B34C75 /* CodableEngineTests.swift */; };
 		67D7A56E214ADC5600B34C75 /* CodableEngineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A56D214ADC5600B34C75 /* CodableEngineHelper.swift */; };
+		67D7A570214ADF8600B34C75 /* CodableEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A56F214ADF8600B34C75 /* CodableEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		67D7A569214ADAB400B34C75 /* GameLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLink.swift; sourceTree = "<group>"; };
 		67D7A56B214ADBE100B34C75 /* CodableEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEngineTests.swift; sourceTree = "<group>"; };
 		67D7A56D214ADC5600B34C75 /* CodableEngineHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEngineHelper.swift; sourceTree = "<group>"; };
+		67D7A56F214ADF8600B34C75 /* CodableEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		67D7A564214AD98E00B34C75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				67D7A56F214ADF8600B34C75 /* CodableEngine.swift */,
 				67D7A562214AD98700B34C75 /* BaseModel.swift */,
 				67D7A565214AD9DD00B34C75 /* Game.swift */,
 				67D7A567214ADA2900B34C75 /* GameAsset.swift */,
@@ -285,6 +288,7 @@
 				67D7A563214AD98700B34C75 /* BaseModel.swift in Sources */,
 				67D7A537214AD96C00B34C75 /* ViewController.swift in Sources */,
 				67D7A535214AD96C00B34C75 /* AppDelegate.swift in Sources */,
+				67D7A570214ADF8600B34C75 /* CodableEngine.swift in Sources */,
 				67D7A56A214ADAB400B34C75 /* GameLink.swift in Sources */,
 				67D7A566214AD9DD00B34C75 /* Game.swift in Sources */,
 				67D7A568214ADA2900B34C75 /* GameAsset.swift in Sources */,
