@@ -21,6 +21,9 @@
 		67D7A56C214ADBE100B34C75 /* CodableEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A56B214ADBE100B34C75 /* CodableEngineTests.swift */; };
 		67D7A56E214ADC5600B34C75 /* CodableEngineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A56D214ADC5600B34C75 /* CodableEngineHelper.swift */; };
 		67D7A570214ADF8600B34C75 /* CodableEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A56F214ADF8600B34C75 /* CodableEngine.swift */; };
+		67D7A572214C2A9A00B34C75 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A571214C2A9A00B34C75 /* Run.swift */; };
+		67D7A574214C2BE000B34C75 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A573214C2BE000B34C75 /* Player.swift */; };
+		67D7A576214C2E4200B34C75 /* GameAssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A575214C2E4200B34C75 /* GameAssetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		67D7A56B214ADBE100B34C75 /* CodableEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEngineTests.swift; sourceTree = "<group>"; };
 		67D7A56D214ADC5600B34C75 /* CodableEngineHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEngineHelper.swift; sourceTree = "<group>"; };
 		67D7A56F214ADF8600B34C75 /* CodableEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEngine.swift; sourceTree = "<group>"; };
+		67D7A571214C2A9A00B34C75 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		67D7A573214C2BE000B34C75 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		67D7A575214C2E4200B34C75 /* GameAssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAssetTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 				67D7A54B214AD96F00B34C75 /* Info.plist */,
 				67D7A56B214ADBE100B34C75 /* CodableEngineTests.swift */,
 				67D7A56D214ADC5600B34C75 /* CodableEngineHelper.swift */,
+				67D7A575214C2E4200B34C75 /* GameAssetTests.swift */,
 			);
 			path = SpeedrunVDTests;
 			sourceTree = "<group>";
@@ -150,6 +157,8 @@
 				67D7A565214AD9DD00B34C75 /* Game.swift */,
 				67D7A567214ADA2900B34C75 /* GameAsset.swift */,
 				67D7A569214ADAB400B34C75 /* GameLink.swift */,
+				67D7A571214C2A9A00B34C75 /* Run.swift */,
+				67D7A573214C2BE000B34C75 /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,11 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				67D7A563214AD98700B34C75 /* BaseModel.swift in Sources */,
+				67D7A572214C2A9A00B34C75 /* Run.swift in Sources */,
 				67D7A537214AD96C00B34C75 /* ViewController.swift in Sources */,
 				67D7A535214AD96C00B34C75 /* AppDelegate.swift in Sources */,
 				67D7A570214ADF8600B34C75 /* CodableEngine.swift in Sources */,
 				67D7A56A214ADAB400B34C75 /* GameLink.swift in Sources */,
 				67D7A566214AD9DD00B34C75 /* Game.swift in Sources */,
+				67D7A574214C2BE000B34C75 /* Player.swift in Sources */,
 				67D7A568214ADA2900B34C75 /* GameAsset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D7A576214C2E4200B34C75 /* GameAssetTests.swift in Sources */,
 				67D7A56C214ADBE100B34C75 /* CodableEngineTests.swift in Sources */,
 				67D7A54A214AD96F00B34C75 /* SpeedrunVDTests.swift in Sources */,
 				67D7A56E214ADC5600B34C75 /* CodableEngineHelper.swift in Sources */,
