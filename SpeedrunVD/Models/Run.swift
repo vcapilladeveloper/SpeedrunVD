@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Run Model, from this we only need the players and times to show in the view
+// And video link to open outside App
 struct Run: Codable {
     let players: [PlayerLink]
     let videos: Videos

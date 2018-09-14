@@ -60,9 +60,9 @@ class CodableEngineTests: XCTestCase {
         
         let run = result.data[0]
 
-        //XCTAssertEqual(run.times.primary_t, 435)
+        XCTAssertEqual(run.times.primary_t, 435)
         XCTAssertEqual(run.players[0].uri, "https://www.speedrun.com/api/v1/users/mkj9nw84")
-        //XCTAssertEqual(run.videos.links[0].uri, "https://youtu.be/-Vesbd8uJzE")
+        XCTAssertEqual(run.videos.links[0].uri, "https://youtu.be/-Vesbd8uJzE")
     }
     
     func testCodableEngine_errorPlayerResult() {
