@@ -65,6 +65,21 @@ class CodableEngineTests: XCTestCase {
         XCTAssertEqual(run.videos.links[0].uri, "https://youtu.be/-Vesbd8uJzE")
     }
     
+    func testCodableEngine_nilReturnData() {
+        guard let resultGames: BaseModel<[Game]> = CodableEngine().genericConvert(nil) else {
+            return XCTAssertNil(nil)
+        }
+        XCTAssertNil(resultGames)
+        guard let resultRuns: BaseModel<[Run]> = CodableEngine().genericConvert(nil) else {
+            return XCTAssertNil(nil)
+        }
+        XCTAssertNil(resultRuns)
+        guard let resultPlayer: BaseModel<Player> = CodableEngine().genericConvert(nil) else {
+            return XCTAssertNil(nil)
+        }
+        XCTAssertNil(resultPlayer)
+    }
+    
     func testCodableEngine_errorPlayerResult() {
         guard let result: BaseModel<[Player]> = CodableEngine().genericConvert(CodableEngineHelper().returnErrorJson()) else {
             return XCTAssertTrue(true)
