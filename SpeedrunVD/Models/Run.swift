@@ -17,8 +17,8 @@ struct Run: Codable {
 }
 
 struct PlayerLink: Codable {
-    let rel, id: String
-    let uri: String
+    let rel, id: String?
+    let uri: String?
 }
 
 struct PlayerTime: Codable {

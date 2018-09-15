@@ -30,17 +30,25 @@ class DataManagerTests: XCTestCase {
         XCTAssertNil(sut.player)
     }
     
-    func testDataManager_getGames() {
+    func testDataManage_getAllData() {
+        dataManager_getGames()
+        dataManager_getRuns()
+        dataManager_getPlayers()
+    }
+    
+    func dataManager_getGames() {
         
-        let expectation: XCTestExpectation = self.expectation(description: "GET DATA")
+        var expectation: XCTestExpectation? = self.expectation(description: "GET GAMES")
         
         sut.getGames { (error) in
             if !error.0 {
                 XCTAssertNotNil(self.sut.games)
-                expectation.fulfill()
+                expectation?.fulfill()
+                expectation = nil
             } else {
                 XCTAssertTrue(error.0)
-                expectation.fulfill()
+                expectation?.fulfill()
+                expectation = nil
             }
         }
         
@@ -49,4 +57,52 @@ class DataManagerTests: XCTestCase {
         }
     }
     
+    func dataManager_getRuns() {
+        
+        var expectation: XCTestExpectation? = self.expectation(description: "GET RUNS")
+        
+        guard let g = sut.games else {
+            return XCTAssertTrue(false)
+        }
+        
+        sut.getRuns(g[0]) { (error) in
+            if !error.0 {
+                XCTAssertNotNil(self.sut.runs)
+                expectation?.fulfill()
+                expectation = nil
+            } else {
+                XCTAssertTrue(error.0)
+                expectation?.fulfill()
+                expectation = nil
+            }
+        }
+        
+        self.waitForExpectations(timeout: 20) { (error: Error?) in
+            XCTAssertFalse(false, (error?.localizedDescription)!)
+        }
+    }
+    
+    func dataManager_getPlayers() {
+        
+        var expectation: XCTestExpectation? = self.expectation(description: "GET PLAYERS")
+        guard let r = sut.runs else {
+            return XCTAssertTrue(false)
+        }
+        
+        sut.getPlayers(r[0]){ (error) in
+            if !error.0 {
+                XCTAssertNotNil(self.sut.player)
+                expectation?.fulfill()
+                expectation = nil
+            } else {
+                XCTAssertTrue(error.0)
+                expectation?.fulfill()
+                expectation = nil
+            }
+            
+            self.waitForExpectations(timeout: 20) { (error: Error?) in
+                XCTAssertFalse(false, (error?.localizedDescription)!)
+            }
+        }
+    }
 }

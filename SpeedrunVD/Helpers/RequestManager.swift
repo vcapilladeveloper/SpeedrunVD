@@ -17,7 +17,7 @@ final class RequestManager: NSObject {
     
     typealias RequestResult = (_ data: Data?, _ error: (Bool, String?)) -> Void
     
-    class func getResults(_ url: URL, completionHandler: @escaping RequestResult) {
+    class func getResults(from url: URL, completionHandler: @escaping RequestResult) {
         dataGetTask?.cancel()
         defaultSession = URLSession(configuration: .default)
         var urlRequest = URLRequest(url: url)

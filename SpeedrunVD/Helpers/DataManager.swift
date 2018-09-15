@@ -23,7 +23,7 @@ final class DataManager: NSObject {
                 return completionHandler((true, nil))
         }
         
-        RequestManager.getResults(url) { (data, error) in
+        RequestManager.getResults(from: url) { (data, error) in
             if !error.0 {
                 guard let result: BaseModel<[Game]> = CodableEngine().genericConvert(data) else {
                     return completionHandler((true, nil))
@@ -36,4 +36,47 @@ final class DataManager: NSObject {
         }
     }
     
+    func getRuns(_ game: Game, _ completionHandler: @escaping (_ error: (Bool, String?))->Void){
+        
+        if let runsUrl = game.links.filter({$0.rel == .runs}).first {
+            guard let url = URL(string: runsUrl.uri) else {
+                return completionHandler((true, nil))
+            }
+            
+            RequestManager.getResults(from: url) { (data, error) in
+                if !error.0 {
+
+                    guard let result: BaseModel<[Run]> = CodableEngine().genericConvert(data) else {
+                        return completionHandler((true, nil))
+                    }
+                    self.runs = result.data
+                    completionHandler((false, nil))
+                } else {
+                    completionHandler((true, error.1))
+                }
+            }
+        }
+    }
+    
+    func getPlayers(_ run: Run, _ completionHandler: @escaping (_ error: (Bool, String?)) -> Void) {
+        if let playerUrl = run.players[0].uri {
+            
+            guard let url = URL(string: "https://www.speedrun.com/api/v1/users/mkj9nw84") else {
+                return completionHandler((true, nil))
+            }
+            
+            RequestManager.getResults(from: url) { (data, error) in
+                if !error.0 {
+                    guard let result: BaseModel<Player> = CodableEngine().genericConvert(data) else {
+                        return completionHandler((true, nil))
+                    }
+                    self.player = result.data
+                    completionHandler((false, nil))
+                } else {
+                    completionHandler((true, error.1))
+                }
+            }
+        }
+        completionHandler((false, nil))
+    }
 }

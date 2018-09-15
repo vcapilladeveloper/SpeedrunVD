@@ -35,7 +35,7 @@ class RequestManagerTests: XCTestCase {
             return XCTAssertTrue(false)
         }
         
-        RequestManager.getResults(url) { (data, error) in
+        RequestManager.getResults(from: url) { (data, error) in
             if !error.0 {
                 XCTAssertNotNil(data)
                 expectation.fulfill()
@@ -57,7 +57,7 @@ class RequestManagerTests: XCTestCase {
         guard let url = URL(string: "http://www.speedrun.com/") else {
             return XCTAssertTrue(false)
         }
-        RequestManager.getResults(url) { (data, error) in
+        RequestManager.getResults(from: url) { (data, error) in
             if !error.0 {
                 XCTAssertNotNil(data)
                 expectation.fulfill()
