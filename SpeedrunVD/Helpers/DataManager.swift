@@ -58,25 +58,22 @@ final class DataManager: NSObject {
         }
     }
     
-    func getPlayers(_ run: Run, _ completionHandler: @escaping (_ error: (Bool, String?)) -> Void) {
-        if let playerUrl = run.players[0].uri {
-            
-            guard let url = URL(string: "https://www.speedrun.com/api/v1/users/mkj9nw84") else {
-                return completionHandler((true, nil))
-            }
-            
-            RequestManager.getResults(from: url) { (data, error) in
-                if !error.0 {
-                    guard let result: BaseModel<Player> = CodableEngine().genericConvert(data) else {
-                        return completionHandler((true, nil))
-                    }
-                    self.player = result.data
-                    completionHandler((false, nil))
-                } else {
-                    completionHandler((true, error.1))
+    func getPlayers(_ playerUrl: String, _ completionHandler: @escaping (_ error: (Bool, String?)) -> Void) {
+        
+        guard let url = URL(string: playerUrl) else {
+            return completionHandler((true, nil))
+        }
+        
+        RequestManager.getResults(from: url) { (data, error) in
+            if !error.0 {
+                guard let result: BaseModel<Player> = CodableEngine().genericConvert(data) else {
+                    return completionHandler((true, nil))
                 }
+                self.player = result.data
+                completionHandler((false, nil))
+            } else {
+                completionHandler((true, error.1))
             }
         }
-        completionHandler((false, nil))
     }
 }

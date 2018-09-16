@@ -30,13 +30,8 @@ class DataManagerTests: XCTestCase {
         XCTAssertNil(sut.player)
     }
     
-    func testDataManage_getAllData() {
-        dataManager_getGames()
-        dataManager_getRuns()
-        dataManager_getPlayers()
-    }
     
-    func dataManager_getGames() {
+    func testDataManager_getGames() {
         
         var expectation: XCTestExpectation? = self.expectation(description: "GET GAMES")
         
@@ -53,12 +48,12 @@ class DataManagerTests: XCTestCase {
         }
         
         self.waitForExpectations(timeout: 10) { (error: Error?) in
-            XCTAssertFalse(false, (error?.localizedDescription)!)
+            XCTAssertFalse(false, error?.localizedDescription ?? "Errir in getGames test")
         }
     }
     
-    func dataManager_getRuns() {
-        
+    func testDataManager_getRuns() {
+        testDataManager_getGames()
         var expectation: XCTestExpectation? = self.expectation(description: "GET RUNS")
         
         guard let g = sut.games else {
@@ -77,19 +72,20 @@ class DataManagerTests: XCTestCase {
             }
         }
         
-        self.waitForExpectations(timeout: 20) { (error: Error?) in
-            XCTAssertFalse(false, (error?.localizedDescription)!)
+        self.waitForExpectations(timeout: 10) { (error: Error?) in
+            XCTAssertFalse(false, error?.localizedDescription ?? "Error in getRuns test")
         }
     }
     
-    func dataManager_getPlayers() {
+    func testDataManager_getAllData() {
+        testDataManager_getRuns()
+        var expectation: XCTestExpectation? = self.expectation(description: "GET PLAYER")
         
-        var expectation: XCTestExpectation? = self.expectation(description: "GET PLAYERS")
-        guard let r = sut.runs else {
+        guard let uri = sut.runs?[0].players[0].uri else {
             return XCTAssertTrue(false)
         }
         
-        sut.getPlayers(r[0]){ (error) in
+        sut.getPlayers(uri) { (error) in
             if !error.0 {
                 XCTAssertNotNil(self.sut.player)
                 expectation?.fulfill()
@@ -99,10 +95,31 @@ class DataManagerTests: XCTestCase {
                 expectation?.fulfill()
                 expectation = nil
             }
-            
-            self.waitForExpectations(timeout: 20) { (error: Error?) in
-                XCTAssertFalse(false, (error?.localizedDescription)!)
+        }
+        
+        self.waitForExpectations(timeout: 10) {(error: Error?) in
+            XCTAssertFalse(false, error?.localizedDescription ?? "Error in getAllData test")
+        }
+    }
+    
+    func testDataManager_getPlayers() {
+        
+        var expectation: XCTestExpectation? = self.expectation(description: "GET PLAYER")
+
+        sut.getPlayers("https://www.speedrun.com/api/v1/users/mkj9nw84") { (error) in
+            if !error.0 {
+                XCTAssertNotNil(self.sut.player)
+                expectation?.fulfill()
+                expectation = nil
+            } else {
+                XCTAssertTrue(error.0)
+                expectation?.fulfill()
+                expectation = nil
             }
+        }
+        
+        self.waitForExpectations(timeout: 10) { (error: Error?) in
+            XCTAssertFalse(false, error?.localizedDescription ?? "Error in getPlayers test")
         }
     }
 }
