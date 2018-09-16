@@ -25,8 +25,8 @@ class DataManagerTests: XCTestCase {
     }
     
     func testDataManager_emptyObjectsAtStart() {
-        XCTAssertNil(sut.games)
-        XCTAssertNil(sut.runs)
+        XCTAssertEqual(sut.games.count, 0)
+        XCTAssertEqual(sut.runs.count, 0)
         XCTAssertNil(sut.player)
     }
     
@@ -56,20 +56,20 @@ class DataManagerTests: XCTestCase {
         testDataManager_getGames()
         var expectation: XCTestExpectation? = self.expectation(description: "GET RUNS")
         
-        guard let g = sut.games else {
-            return XCTAssertTrue(false)
-        }
-        
-        sut.getRuns(g[0]) { (error) in
-            if !error.0 {
-                XCTAssertNotNil(self.sut.runs)
-                expectation?.fulfill()
-                expectation = nil
-            } else {
-                XCTAssertTrue(error.0)
-                expectation?.fulfill()
-                expectation = nil
+        if sut.countOfGames() > 0 {
+            sut.getRuns(sut.games[0]) { (error) in
+                if !error.0 {
+                    XCTAssertNotNil(self.sut.runs)
+                    expectation?.fulfill()
+                    expectation = nil
+                } else {
+                    XCTAssertTrue(error.0)
+                    expectation?.fulfill()
+                    expectation = nil
+                }
             }
+        } else {
+            XCTAssertTrue(false)
         }
         
         self.waitForExpectations(timeout: 10) { (error: Error?) in
@@ -81,20 +81,23 @@ class DataManagerTests: XCTestCase {
         testDataManager_getRuns()
         var expectation: XCTestExpectation? = self.expectation(description: "GET PLAYER")
         
-        guard let uri = sut.runs?[0].players[0].uri else {
-            return XCTAssertTrue(false)
-        }
-        
-        sut.getPlayers(uri) { (error) in
-            if !error.0 {
-                XCTAssertNotNil(self.sut.player)
-                expectation?.fulfill()
-                expectation = nil
-            } else {
-                XCTAssertTrue(error.0)
-                expectation?.fulfill()
-                expectation = nil
+        if sut.runs.count > 0 {
+            guard let uri = sut.runs[0].players[0].uri else {
+                return XCTAssertTrue(false)
             }
+            sut.getPlayers(uri) { (error) in
+                if !error.0 {
+                    XCTAssertNotNil(self.sut.player)
+                    expectation?.fulfill()
+                    expectation = nil
+                } else {
+                    XCTAssertTrue(error.0)
+                    expectation?.fulfill()
+                    expectation = nil
+                }
+            }
+        } else {
+            XCTAssertTrue(false)
         }
         
         self.waitForExpectations(timeout: 10) {(error: Error?) in

@@ -14,9 +14,13 @@ final class DataManager: NSObject {
     
     let requestDomain = "https://www.speedrun.com/api/v1/"
     
-    var games: [Game]?
-    var runs: [Run]?
+    var games = [Game]()
+    var runs = [Run]()
     var player: Player?
+    
+    func countOfGames() -> Int {
+        return games.count ?? 0
+    }
     
     func getGames(_ completionHandler: @escaping (_ error: (Bool, String?))->Void) {
         guard let url = URL(string: requestDomain + "games") else {
