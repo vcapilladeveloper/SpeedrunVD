@@ -18,6 +18,8 @@ final class GamesViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = dataProvider
         tableView.delegate = dataProvider
+        dataProvider.delegate = self
+        self.title = "Games List"
         
     }
     
@@ -26,4 +28,26 @@ final class GamesViewController: UIViewController {
         dataManager = DataManager()
         dataProvider.dataManager = dataManager
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        pleaseWait()
+        dataProvider.getDataForList()
+    }
+}
+
+extension GamesViewController: GameListDelegate {
+    func someError(_ message: String?) {
+        print("Error")
+    }
+    
+    func openGameInformation(_ game: Game) {
+        print("Open Game")
+    }
+    
+    func reloadList() {
+        self.clearAllNotice()
+        tableView.reloadData()
+    }
+    
 }

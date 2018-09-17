@@ -33,6 +33,12 @@
 		67D7A581214E62A000B34C75 /* GamesViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A580214E62A000B34C75 /* GamesViewControllerTest.swift */; };
 		88669BD6214FB22300E3BBA0 /* ToolsVD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88669BD5214FB22300E3BBA0 /* ToolsVD.framework */; };
 		88669BD7214FB22300E3BBA0 /* ToolsVD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88669BD5214FB22300E3BBA0 /* ToolsVD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88669BDC214FB88200E3BBA0 /* GameItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88669BDB214FB88200E3BBA0 /* GameItemCell.swift */; };
+		88669BDE214FC3EB00E3BBA0 /* GameItemCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88669BDD214FC3EB00E3BBA0 /* GameItemCellTests.swift */; };
+		88C924CC214FCAF900E0F16D /* URLImageVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924CA214FCAF900E0F16D /* URLImageVD.swift */; };
+		88C924D1214FD12A00E0F16D /* WaitingVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924D0214FD12900E0F16D /* WaitingVD.swift */; };
+		88C924D3214FE4C400E0F16D /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924D2214FE4C400E0F16D /* GameDetailViewController.swift */; };
+		88C924D5214FE4D400E0F16D /* GameDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924D4214FE4D400E0F16D /* GameDetailViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +104,12 @@
 		67D7A57E214C39AE00B34C75 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		67D7A580214E62A000B34C75 /* GamesViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewControllerTest.swift; sourceTree = "<group>"; };
 		88669BD5214FB22300E3BBA0 /* ToolsVD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToolsVD.framework; path = Carthage/Build/iOS/ToolsVD.framework; sourceTree = "<group>"; };
+		88669BDB214FB88200E3BBA0 /* GameItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCell.swift; sourceTree = "<group>"; };
+		88669BDD214FC3EB00E3BBA0 /* GameItemCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCellTests.swift; sourceTree = "<group>"; };
+		88C924CA214FCAF900E0F16D /* URLImageVD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageVD.swift; sourceTree = "<group>"; };
+		88C924D0214FD12900E0F16D /* WaitingVD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingVD.swift; sourceTree = "<group>"; };
+		88C924D2214FE4C400E0F16D /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
+		88C924D4214FE4D400E0F16D /* GameDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,13 +162,10 @@
 		67D7A533214AD96C00B34C75 /* SpeedrunVD */ = {
 			isa = PBXGroup;
 			children = (
+				88669BDA214FB86B00E3BBA0 /* Views */,
 				67D7A577214C352C00B34C75 /* Helpers */,
-				67D7A534214AD96C00B34C75 /* AppDelegate.swift */,
-				67D7A536214AD96C00B34C75 /* GamesViewController.swift */,
 				67D7A538214AD96C00B34C75 /* Main.storyboard */,
-				67D7A53B214AD96E00B34C75 /* Assets.xcassets */,
-				67D7A53D214AD96E00B34C75 /* LaunchScreen.storyboard */,
-				67D7A540214AD96E00B34C75 /* Info.plist */,
+				88C924CF214FD01F00E0F16D /* Support Files */,
 				67D7A564214AD98E00B34C75 /* Models */,
 			);
 			path = SpeedrunVD;
@@ -174,6 +183,8 @@
 				67D7A57E214C39AE00B34C75 /* DataManagerTests.swift */,
 				67D7A580214E62A000B34C75 /* GamesViewControllerTest.swift */,
 				67D1ECF9214E6F31001DBBF2 /* GameListProviderTests.swift */,
+				88669BDD214FC3EB00E3BBA0 /* GameItemCellTests.swift */,
+				88C924D4214FE4D400E0F16D /* GameDetailViewControllerTests.swift */,
 			);
 			path = SpeedrunVDTests;
 			sourceTree = "<group>";
@@ -204,11 +215,34 @@
 		67D7A577214C352C00B34C75 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				88C924D0214FD12900E0F16D /* WaitingVD.swift */,
+				88C924CA214FCAF900E0F16D /* URLImageVD.swift */,
 				67D7A578214C355600B34C75 /* RequestManager.swift */,
 				67D7A57A214C384600B34C75 /* DataManager.swift */,
 				67D1ECF7214E6588001DBBF2 /* GameListProvider.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		88669BDA214FB86B00E3BBA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67D7A536214AD96C00B34C75 /* GamesViewController.swift */,
+				88669BDB214FB88200E3BBA0 /* GameItemCell.swift */,
+				88C924D2214FE4C400E0F16D /* GameDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		88C924CF214FD01F00E0F16D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				67D7A53D214AD96E00B34C75 /* LaunchScreen.storyboard */,
+				67D7A534214AD96C00B34C75 /* AppDelegate.swift */,
+				67D7A53B214AD96E00B34C75 /* Assets.xcassets */,
+				67D7A540214AD96E00B34C75 /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,11 +395,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C924D1214FD12A00E0F16D /* WaitingVD.swift in Sources */,
 				67D7A563214AD98700B34C75 /* BaseModel.swift in Sources */,
 				67D7A572214C2A9A00B34C75 /* Run.swift in Sources */,
 				67D7A537214AD96C00B34C75 /* GamesViewController.swift in Sources */,
 				67D7A535214AD96C00B34C75 /* AppDelegate.swift in Sources */,
+				88C924D3214FE4C400E0F16D /* GameDetailViewController.swift in Sources */,
 				67D7A57B214C384600B34C75 /* DataManager.swift in Sources */,
+				88669BDC214FB88200E3BBA0 /* GameItemCell.swift in Sources */,
 				67D7A570214ADF8600B34C75 /* CodableEngine.swift in Sources */,
 				67D1ECF8214E6588001DBBF2 /* GameListProvider.swift in Sources */,
 				67D7A579214C355600B34C75 /* RequestManager.swift in Sources */,
@@ -373,6 +410,7 @@
 				67D7A566214AD9DD00B34C75 /* Game.swift in Sources */,
 				67D7A574214C2BE000B34C75 /* Player.swift in Sources */,
 				67D7A568214ADA2900B34C75 /* GameAsset.swift in Sources */,
+				88C924CC214FCAF900E0F16D /* URLImageVD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +425,9 @@
 				67D7A57D214C39A300B34C75 /* RequestManagerTests.swift in Sources */,
 				67D7A56C214ADBE100B34C75 /* CodableEngineTests.swift in Sources */,
 				67D7A54A214AD96F00B34C75 /* SpeedrunVDTests.swift in Sources */,
+				88C924D5214FE4D400E0F16D /* GameDetailViewControllerTests.swift in Sources */,
 				67D7A56E214ADC5600B34C75 /* CodableEngineHelper.swift in Sources */,
+				88669BDE214FC3EB00E3BBA0 /* GameItemCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +591,7 @@
 		67D7A55A214AD96F00B34C75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQMZ52CJNY;
@@ -573,6 +614,7 @@
 		67D7A55B214AD96F00B34C75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQMZ52CJNY;
@@ -598,7 +640,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7AZRND92Z;
+				DEVELOPMENT_TEAM = XQMZ52CJNY;
 				INFOPLIST_FILE = SpeedrunVDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,7 +661,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7AZRND92Z;
+				DEVELOPMENT_TEAM = XQMZ52CJNY;
 				INFOPLIST_FILE = SpeedrunVDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,7 +681,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7AZRND92Z;
+				DEVELOPMENT_TEAM = XQMZ52CJNY;
 				INFOPLIST_FILE = SpeedrunVDUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,7 +701,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7AZRND92Z;
+				DEVELOPMENT_TEAM = XQMZ52CJNY;
 				INFOPLIST_FILE = SpeedrunVDUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
