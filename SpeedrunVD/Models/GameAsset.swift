@@ -11,7 +11,7 @@ import Foundation
 struct GameAsset: Codable, Equatable {
     let uri: String
     
-    static func ==(lhs: GameAsset, rhs: GameAsset) -> Bool {
+    static func == (lhs: GameAsset, rhs: GameAsset) -> Bool {
         if lhs.uri != rhs.uri {
             return false
         }
