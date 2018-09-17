@@ -31,6 +31,8 @@
 		67D7A57D214C39A300B34C75 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A57C214C39A300B34C75 /* RequestManagerTests.swift */; };
 		67D7A57F214C39AE00B34C75 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A57E214C39AE00B34C75 /* DataManagerTests.swift */; };
 		67D7A581214E62A000B34C75 /* GamesViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7A580214E62A000B34C75 /* GamesViewControllerTest.swift */; };
+		88669BD6214FB22300E3BBA0 /* ToolsVD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88669BD5214FB22300E3BBA0 /* ToolsVD.framework */; };
+		88669BD7214FB22300E3BBA0 /* ToolsVD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88669BD5214FB22300E3BBA0 /* ToolsVD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,20 @@
 			remoteInfo = SpeedrunVD;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88669BD8214FB22400E3BBA0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88669BD7214FB22300E3BBA0 /* ToolsVD.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		67D1ECF7214E6588001DBBF2 /* GameListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListProvider.swift; sourceTree = "<group>"; };
@@ -81,6 +97,7 @@
 		67D7A57C214C39A300B34C75 /* RequestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
 		67D7A57E214C39AE00B34C75 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		67D7A580214E62A000B34C75 /* GamesViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewControllerTest.swift; sourceTree = "<group>"; };
+		88669BD5214FB22300E3BBA0 /* ToolsVD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToolsVD.framework; path = Carthage/Build/iOS/ToolsVD.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88669BD6214FB22300E3BBA0 /* ToolsVD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +129,7 @@
 		67D7A528214AD96C00B34C75 = {
 			isa = PBXGroup;
 			children = (
+				88669BD5214FB22300E3BBA0 /* ToolsVD.framework */,
 				67D7A533214AD96C00B34C75 /* SpeedrunVD */,
 				67D7A548214AD96F00B34C75 /* SpeedrunVDTests */,
 				67D7A553214AD96F00B34C75 /* SpeedrunVDUITests */,
@@ -202,6 +221,8 @@
 				67D7A52D214AD96C00B34C75 /* Sources */,
 				67D7A52E214AD96C00B34C75 /* Frameworks */,
 				67D7A52F214AD96C00B34C75 /* Resources */,
+				88669BD8214FB22400E3BBA0 /* Embed Frameworks */,
+				88669BD9214FB2A100E3BBA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -317,6 +338,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88669BD9214FB2A100E3BBA0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ToolsVD.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		67D7A52D214AD96C00B34C75 /* Sources */ = {
@@ -515,7 +553,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7AZRND92Z;
+				DEVELOPMENT_TEAM = XQMZ52CJNY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SpeedrunVD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,7 +575,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7AZRND92Z;
+				DEVELOPMENT_TEAM = XQMZ52CJNY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SpeedrunVD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
