@@ -24,10 +24,19 @@ class GameDetailViewController: UIViewController {
     @IBOutlet weak var timeRun: UILabel!
     
     @IBAction func openVideo(_ sender: UIButton) {
+        
         guard let url = URL(string: (run?.videos?.links[0].uri) ?? "") else { return }
-        UIApplication.shared.open(url)
+        guard let appUrl = URL(string: (run?.videos?.links[0].uri.replacingOccurrences(of: "https", with: "youtube")) ?? "") else { return }
+        let application = UIApplication.shared
+        
+        if application.canOpenURL(appUrl) {
+            application.open(appUrl)
+        } else {
+            // if Youtube app is not installed, open URL inside Safari
+            application.open(url)
+        }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataManager = DataManager()
@@ -88,7 +97,7 @@ class GameDetailViewController: UIViewController {
         
         gameName.text = game?.names.international ?? "No Game Name"
         playerName.text =  player?.name ?? player?.names?.international ?? "No Player Name"
-       // timeRun.text = TimeHelperVD().stringFromSecondsInFormat(run?.times.primary_t ?? 0.0)
+        timeRun.text = TimeHelperVD().stringFromSecondsInFormat(run?.times.primary_t ?? 0.0)
         
     }
     

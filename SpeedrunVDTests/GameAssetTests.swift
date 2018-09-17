@@ -32,5 +32,6 @@ class GameAssetTests: XCTestCase {
     
     func testGame_OkEquals() {
         let anotherGameAsset = GameAsset(uri: "http://www.speedrun.com")
+        XCTAssertEqual(anotherGameAsset, sut)
     }
 }

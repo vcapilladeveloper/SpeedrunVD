@@ -7,6 +7,7 @@
 //
 
 import XCTest
+
 @testable import SpeedrunVD
 
 class GameDetailViewControllerTests: XCTestCase {
@@ -24,15 +25,7 @@ class GameDetailViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testGameDetailViewController_backgroundImageNotNil() {
-        XCTAssertNotNil(sut.backgroundImage)
-    }
-    
-    func testGameDetailViewController_coverGameNotNil() {
-        XCTAssertNotNil(sut.coverGame)
-    }
-    
+
     func testGameDetailViewController_gameNameNotNil() {
         XCTAssertNotNil(sut.gameName)
     }
@@ -45,6 +38,31 @@ class GameDetailViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.timeRun)
     }
     
-    
+    func testGameDetailViewController_AfterGetInformation() {
+        guard let result: BaseModel<[Game]> = CodableEngine().genericConvert(CodableEngineHelper().getCodableExample(.game)) else {
+            return XCTAssertTrue(false)
+        }
+        
+        sut.game = result.data[0]
+        guard let runResult: BaseModel<[Run]> = CodableEngine().genericConvert(CodableEngineHelper().getCodableExample(.run)) else {
+            return XCTAssertTrue(false)
+        }
+        
+        sut.run = runResult.data[0]
+        
+        guard let playerResult: BaseModel<Player> = CodableEngine().genericConvert(CodableEngineHelper().getCodableExample(.player)) else {
+            return XCTAssertTrue(false)
+        }
+        
+        sut.player = playerResult.data
+        
+        sut.setInfoFromGameAndPlayer()
+        
+        XCTAssertEqual(sut.backgroundImage.url?.absoluteString, sut.game?.assets["background"]??.uri)
+        XCTAssertEqual(sut.coverGame.url?.absoluteString, sut.game?.assets["cover-large"]??.uri)
+        XCTAssertEqual(sut.gameName.text, sut.game?.names.international)
+        XCTAssertEqual(sut.playerName.text, sut.player?.name ?? sut.player?.names?.international)
+        
+    }
     
 }

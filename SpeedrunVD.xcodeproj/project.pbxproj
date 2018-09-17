@@ -35,8 +35,6 @@
 		88669BD7214FB22300E3BBA0 /* ToolsVD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88669BD5214FB22300E3BBA0 /* ToolsVD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88669BDC214FB88200E3BBA0 /* GameItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88669BDB214FB88200E3BBA0 /* GameItemCell.swift */; };
 		88669BDE214FC3EB00E3BBA0 /* GameItemCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88669BDD214FC3EB00E3BBA0 /* GameItemCellTests.swift */; };
-		88C924CC214FCAF900E0F16D /* URLImageVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924CA214FCAF900E0F16D /* URLImageVD.swift */; };
-		88C924D1214FD12A00E0F16D /* WaitingVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924D0214FD12900E0F16D /* WaitingVD.swift */; };
 		88C924D3214FE4C400E0F16D /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924D2214FE4C400E0F16D /* GameDetailViewController.swift */; };
 		88C924D5214FE4D400E0F16D /* GameDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C924D4214FE4D400E0F16D /* GameDetailViewControllerTests.swift */; };
 /* End PBXBuildFile section */
@@ -106,8 +104,6 @@
 		88669BD5214FB22300E3BBA0 /* ToolsVD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToolsVD.framework; path = Carthage/Build/iOS/ToolsVD.framework; sourceTree = "<group>"; };
 		88669BDB214FB88200E3BBA0 /* GameItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCell.swift; sourceTree = "<group>"; };
 		88669BDD214FC3EB00E3BBA0 /* GameItemCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCellTests.swift; sourceTree = "<group>"; };
-		88C924CA214FCAF900E0F16D /* URLImageVD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageVD.swift; sourceTree = "<group>"; };
-		88C924D0214FD12900E0F16D /* WaitingVD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingVD.swift; sourceTree = "<group>"; };
 		88C924D2214FE4C400E0F16D /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		88C924D4214FE4D400E0F16D /* GameDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,8 +211,6 @@
 		67D7A577214C352C00B34C75 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				88C924D0214FD12900E0F16D /* WaitingVD.swift */,
-				88C924CA214FCAF900E0F16D /* URLImageVD.swift */,
 				67D7A578214C355600B34C75 /* RequestManager.swift */,
 				67D7A57A214C384600B34C75 /* DataManager.swift */,
 				67D1ECF7214E6588001DBBF2 /* GameListProvider.swift */,
@@ -395,7 +389,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88C924D1214FD12A00E0F16D /* WaitingVD.swift in Sources */,
 				67D7A563214AD98700B34C75 /* BaseModel.swift in Sources */,
 				67D7A572214C2A9A00B34C75 /* Run.swift in Sources */,
 				67D7A537214AD96C00B34C75 /* GamesViewController.swift in Sources */,
@@ -410,7 +403,6 @@
 				67D7A566214AD9DD00B34C75 /* Game.swift in Sources */,
 				67D7A574214C2BE000B34C75 /* Player.swift in Sources */,
 				67D7A568214ADA2900B34C75 /* GameAsset.swift in Sources */,
-				88C924CC214FCAF900E0F16D /* URLImageVD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,7 +586,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XQMZ52CJNY;
+				DEVELOPMENT_TEAM = N7AZRND92Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -617,7 +609,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XQMZ52CJNY;
+				DEVELOPMENT_TEAM = N7AZRND92Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
