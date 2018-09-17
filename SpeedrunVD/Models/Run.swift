@@ -12,7 +12,7 @@ import Foundation
 // And video link to open outside App
 struct Run: Codable {
     let players: [PlayerLink]
-    let videos: Videos
+    let videos: Videos?
     let times: PlayerTime
 }
 
@@ -22,7 +22,7 @@ struct PlayerLink: Codable {
 }
 
 struct PlayerTime: Codable {
-    let primary_t: Int
+    let primary_t: Double
 }
 
 struct Videos: Codable {

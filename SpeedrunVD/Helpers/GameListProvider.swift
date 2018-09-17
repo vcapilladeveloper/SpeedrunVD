@@ -30,13 +30,18 @@ final class GameListProvider: NSObject {
             }
         })
     }
-    
 }
 
 extension GameListProvider: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataManager?.countOfGames() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let game = dataManager?.getGameFrom(position: indexPath.row) {
+            delegate?.openGameInformation(game)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

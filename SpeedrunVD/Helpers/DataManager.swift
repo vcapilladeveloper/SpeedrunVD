@@ -19,7 +19,11 @@ final class DataManager: NSObject {
     var player: Player?
     
     func countOfGames() -> Int {
-        return games.count ?? 0
+        return games.count 
+    }
+    
+    func getGameFrom(position: Int) -> Game {
+        return games[position] 
     }
     
     func getGames(_ completionHandler: @escaping (_ error: (Bool, String?))->Void) {

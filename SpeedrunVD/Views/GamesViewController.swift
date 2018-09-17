@@ -13,6 +13,7 @@ final class GamesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var dataManager: DataManager?
     @IBOutlet var dataProvider: (UITableViewDataSource & UITableViewDelegate & GameListProvider)!
+    private var segueToShowDetails = "showGameDetails"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +35,33 @@ final class GamesViewController: UIViewController {
         pleaseWait()
         dataProvider.getDataForList()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueToShowDetails {
+            if let dc = segue.destination as? GameDetailViewController, let game = sender as? Game {
+                dc.game = game
+            }
+        }
+    }
+    
+    private func showAlert(_ message: String? = "Is not possible to load data.") {
+        self.clearAllNotice()
+        let alert = UIAlertController(title: "Unavailable Data",
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension GamesViewController: GameListDelegate {
     func someError(_ message: String?) {
-        print("Error")
+        showAlert(message)
     }
     
     func openGameInformation(_ game: Game) {
-        print("Open Game")
+        performSegue(withIdentifier: segueToShowDetails, sender: game)
     }
     
     func reloadList() {

@@ -10,5 +10,6 @@ import Foundation
 
 // Player Model. Here we only need the name of the player.
 struct Player: Codable{
-    let names: Names
+    let names: Names?
+    let name: String?
 }

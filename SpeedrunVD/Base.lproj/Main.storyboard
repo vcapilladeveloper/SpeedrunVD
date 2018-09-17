@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,12 +76,107 @@
                     <connections>
                         <outlet property="dataProvider" destination="xTH-mn-zJ9" id="W38-Iz-gfZ"/>
                         <outlet property="tableView" destination="ewB-4d-Ils" id="Waw-hu-DeJ"/>
+                        <segue destination="i0t-fo-sSr" kind="show" identifier="showGameDetails" id="yHU-oX-Y7w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="xTH-mn-zJ9" customClass="GameListProvider" customModule="SpeedrunVD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="972" y="33.733133433283363"/>
+        </scene>
+        <!--Game Detail View Controller-->
+        <scene sceneID="w7T-zK-I9h">
+            <objects>
+                <viewController storyboardIdentifier="GameDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i0t-fo-sSr" customClass="GameDetailViewController" customModule="SpeedrunVD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u3e-lF-NdF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmE-fK-Th3" customClass="URLImageVD" customModule="SpeedrunVD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgg-6T-adn" customClass="URLImageVD" customModule="SpeedrunVD" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="343" height="181"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYY-DQ-KAh">
+                                <rect key="frame" x="8" y="607.5" width="359" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.43529411759999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Show Video">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openVideo:" destination="i0t-fo-sSr" eventType="touchUpInside" id="Aba-a6-yVE"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-F3-AYr">
+                                <rect key="frame" x="16" y="277" width="343" height="177"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Mgt-a1-Nhm">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Fgx-1q-ub4">
+                                        <rect key="frame" x="0.0" y="37" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-XF-Rk4">
+                                        <rect key="frame" x="0.0" y="74" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="DUt-2m-gkW">
+                                        <rect key="frame" x="0.0" y="111" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="qm9-fG-YLS">
+                                        <rect key="frame" x="0.0" y="148" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mkm-F3-AYr" firstAttribute="leading" secondItem="eBf-1O-xbR" secondAttribute="leading" constant="16" id="0vA-Mu-EXZ"/>
+                            <constraint firstItem="jgg-6T-adn" firstAttribute="centerX" secondItem="tYY-DQ-KAh" secondAttribute="centerX" id="6EL-A4-CDV"/>
+                            <constraint firstItem="eBf-1O-xbR" firstAttribute="trailing" secondItem="jgg-6T-adn" secondAttribute="trailing" constant="16" id="98c-mO-q2H"/>
+                            <constraint firstItem="eBf-1O-xbR" firstAttribute="trailing" secondItem="mkm-F3-AYr" secondAttribute="trailing" constant="16" id="C9y-O1-jSM"/>
+                            <constraint firstItem="jgg-6T-adn" firstAttribute="leading" secondItem="eBf-1O-xbR" secondAttribute="leading" constant="16" id="Iev-BD-wc9"/>
+                            <constraint firstItem="jgg-6T-adn" firstAttribute="centerX" secondItem="u3e-lF-NdF" secondAttribute="centerX" id="MwS-c8-Mip"/>
+                            <constraint firstItem="eBf-1O-xbR" firstAttribute="trailing" secondItem="bmE-fK-Th3" secondAttribute="trailing" id="Rzi-yV-ye9"/>
+                            <constraint firstItem="eBf-1O-xbR" firstAttribute="bottom" secondItem="bmE-fK-Th3" secondAttribute="bottom" id="U32-eF-BIZ"/>
+                            <constraint firstItem="eBf-1O-xbR" firstAttribute="trailing" secondItem="tYY-DQ-KAh" secondAttribute="trailing" constant="8" id="XYn-sw-vQ1"/>
+                            <constraint firstItem="tYY-DQ-KAh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mkm-F3-AYr" secondAttribute="bottom" constant="8" id="dnD-5T-LiU"/>
+                            <constraint firstItem="bmE-fK-Th3" firstAttribute="top" secondItem="eBf-1O-xbR" secondAttribute="top" id="fZB-KE-Wqp"/>
+                            <constraint firstItem="jgg-6T-adn" firstAttribute="height" secondItem="bmE-fK-Th3" secondAttribute="height" multiplier="0.3" id="hbZ-Es-uVl"/>
+                            <constraint firstItem="bmE-fK-Th3" firstAttribute="leading" secondItem="eBf-1O-xbR" secondAttribute="leading" id="iDI-as-NSr"/>
+                            <constraint firstItem="mkm-F3-AYr" firstAttribute="top" secondItem="jgg-6T-adn" secondAttribute="bottom" constant="16" id="oeG-I7-7Jk"/>
+                            <constraint firstItem="eBf-1O-xbR" firstAttribute="bottom" secondItem="tYY-DQ-KAh" secondAttribute="bottom" constant="29.5" id="spZ-Kc-sKU"/>
+                            <constraint firstItem="tYY-DQ-KAh" firstAttribute="leading" secondItem="eBf-1O-xbR" secondAttribute="leading" constant="8" id="tDc-aH-xPm"/>
+                            <constraint firstItem="jgg-6T-adn" firstAttribute="top" secondItem="eBf-1O-xbR" secondAttribute="top" constant="16" id="xmI-MX-plV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eBf-1O-xbR"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="bmE-fK-Th3" id="KoS-dF-kZd"/>
+                        <outlet property="coverGame" destination="jgg-6T-adn" id="3bX-Ny-w6V"/>
+                        <outlet property="gameName" destination="Mgt-a1-Nhm" id="3B5-IZ-dFD"/>
+                        <outlet property="playerName" destination="7bK-XF-Rk4" id="Cy2-Ds-C4g"/>
+                        <outlet property="timeRun" destination="qm9-fG-YLS" id="82x-Wx-DuD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mag-sF-wHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1924" y="33.733133433283363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pcZ-Ui-SQu">
