@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 
+// Protocol to comunicate with ViewController
 protocol GameListDelegate {
     func someError(_ message: String?)
     func openGameInformation(_ game: Game)
     func reloadList()
 }
 
+// Provider of data for TableView and DetailView
 final class GameListProvider: NSObject {
     var dataManager: DataManager?
     var delegate: GameListDelegate?

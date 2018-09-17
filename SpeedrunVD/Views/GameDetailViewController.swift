@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import ToolsVD
 
+// Controller for view that shows the details of game selected from List
 class GameDetailViewController: UIViewController {
-        
+    
     var run: Run?
     var player: Player?
     var game: Game?
@@ -43,6 +44,7 @@ class GameDetailViewController: UIViewController {
         getRunAndPlayer()
     }
     
+    // Get data and show in the view
     func getRunAndPlayer() {
         pleaseWait()
         if let g = game {
@@ -75,7 +77,19 @@ class GameDetailViewController: UIViewController {
                 }
             })
         }
-       
+    }
+
+    // Set UI elements
+    func setInfoFromGameAndPlayer(){
+        backgroundImage.setURL(url: NSURL(string: (game?.assets["background"]??.uri) ?? ""), placeholderImage: nil)
+        backgroundImage.alpha = 0.7
+        
+        coverGame.setURL(url: NSURL(string: (game?.assets["cover-large"]??.uri) ?? ""), placeholderImage: nil)
+        
+        gameName.text = game?.names.international ?? "No Game Name"
+        playerName.text =  player?.name ?? player?.names?.international ?? "No Player Name"
+        timeRun.text = TimeHelperVD().stringFromSecondsInFormat(run?.times.primary_t ?? 0.0)
+        
     }
     
     private func showAlert(_ message: String? = "Is not possible to load data.") {
@@ -87,18 +101,6 @@ class GameDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         })
         self.present(alert, animated: true)
-    }
-    
-    func setInfoFromGameAndPlayer(){
-        backgroundImage.setURL(url: NSURL(string: (game?.assets["background"]??.uri) ?? ""), placeholderImage: nil)
-        backgroundImage.alpha = 0.7
-        
-        coverGame.setURL(url: NSURL(string: (game?.assets["cover-large"]??.uri) ?? ""), placeholderImage: nil)
-        
-        gameName.text = game?.names.international ?? "No Game Name"
-        playerName.text =  player?.name ?? player?.names?.international ?? "No Player Name"
-        timeRun.text = TimeHelperVD().stringFromSecondsInFormat(run?.times.primary_t ?? 0.0)
-        
     }
     
 }

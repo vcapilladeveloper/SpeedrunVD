@@ -8,12 +8,13 @@
 
 import UIKit
 
+// Controller for the view were List of games ar shown
 final class GamesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataManager: DataManager?
     @IBOutlet var dataProvider: (UITableViewDataSource & UITableViewDelegate & GameListProvider)!
     private var segueToShowDetails = "showGameDetails"
+    var dataManager: DataManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
