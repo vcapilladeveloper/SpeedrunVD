@@ -24,7 +24,7 @@ final class GamesViewController: UIViewController {
         self.title = "Games List"
         
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataManager = DataManager()
@@ -39,12 +39,12 @@ final class GamesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToShowDetails {
-            if let dc = segue.destination as? GameDetailViewController, let game = sender as? Game {
-                dc.game = game
+            if let destinartionController = segue.destination as? GameDetailViewController, let game = sender as? Game {
+                destinartionController.game = game
             }
         }
     }
-    
+
     private func showAlert(_ message: String? = "Is not possible to load data.") {
         self.clearAllNotice()
         let alert = UIAlertController(title: "Unavailable Data",

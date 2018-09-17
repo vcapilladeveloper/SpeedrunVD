@@ -14,7 +14,7 @@ import Foundation
 struct Game: Codable, Equatable {
     // I know that this is not the best equatable function of the world,
     // but I don't have enouth time to make each Model Equatable
-    static func ==(lhs: Game, rhs: Game) -> Bool {
+    static func == (lhs: Game, rhs: Game) -> Bool {
         if lhs.abbreviation != rhs.abbreviation {
             return false
         }

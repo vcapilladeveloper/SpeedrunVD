@@ -17,16 +17,16 @@ final class DataManager: NSObject {
     var games = [Game]()
     var runs = [Run]()
     var player: Player?
-    
+
     func countOfGames() -> Int {
         return games.count 
     }
-    
+
     func getGameFrom(position: Int) -> Game {
         return games[position] 
     }
     
-    func getGames(_ completionHandler: @escaping (_ error: (Bool, String?))->Void) {
+    func getGames(_ completionHandler: @escaping (_ error: (Bool, String?)) -> Void) {
         guard let url = URL(string: requestDomain + "games") else {
                 return completionHandler((true, nil))
         }
@@ -44,7 +44,7 @@ final class DataManager: NSObject {
         }
     }
     
-    func getRuns(_ game: Game, _ completionHandler: @escaping (_ error: (Bool, String?))->Void){
+    func getRuns(_ game: Game, _ completionHandler: @escaping (_ error: (Bool, String?)) -> Void) {
         
         if let runsUrl = game.links.filter({$0.rel == .runs}).first {
             guard let url = URL(string: runsUrl.uri) else {
@@ -65,9 +65,9 @@ final class DataManager: NSObject {
             }
         }
     }
-    
+
     func getPlayers(_ playerUrl: String, _ completionHandler: @escaping (_ error: (Bool, String?)) -> Void) {
-        
+
         guard let url = URL(string: playerUrl) else {
             return completionHandler((true, nil))
         }
